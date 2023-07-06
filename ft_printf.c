@@ -6,58 +6,58 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:36:51 by izanoni           #+#    #+#             */
-/*   Updated: 2023/07/05 20:31:58 by izanoni          ###   ########.fr       */
+/*   Updated: 2023/07/06 13:34:36 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		arg_check(va_list ap, const char *print, int i);
+int	arg_check(va_list args, const char *input, int i);
 
-int	ft_printf(const char *print, ...)
+int	ft_printf(const char *input, ...)
 {
-	va_list	ap;
+	va_list	args;
 	int		i;
 	int		count;
 
-	va_start(ap, print);
+	va_start(args, input);
 	i = 0;
 	count = 0;
-	while (print[i] != '\0')
+	while (input[i] != '\0')
 	{
-		if (print[i] != '%')
-			count += ft_putchar_ret(print[i]);
-		if (print[i] == '%')
+		if (input[i] != '%')
+			count += ft_putchar_ret(input[i]);
+		if (input[i] == '%')
 		{
 			i++;
-			count += arg_check(ap, print, i);
+			count += arg_check(args, input, i);
 		}
 		i++;
 	}
-	va_end(ap);
+	va_end(args);
 	return (count);
 }
 
-int	arg_check(va_list ap, const char *print, int i)
+int	arg_check(va_list args, const char *input, int i)
 {
 	int	count;
 
 	count = 0;
-	if (print[i] == 'c')
-		count += ft_putchar_ret(va_arg(ap, int));
-	else if (print[i] == 's')
-		count += ft_putstr_ret(va_arg(ap, char *));
-	else if (print[i] == 'p')
-		count += ft_put_p(va_arg(ap, size_t));
-	else if (print[i] == 'd' || print[i] == 'i')
-		count += ft_putnbr_ret(va_arg(ap, int));
-	else if (print[i] == 'u')
-		count += ft_putnbr_uns_ret(va_arg(ap, unsigned int));
-	else if (print[i] == 'x')
-		count += ft_putnbr_base_low(va_arg(ap, unsigned int));
-	else if (print[i] == 'X')
-		count += ft_putnbr_base_up(va_arg(ap, unsigned int));
-	else if (print[i] == '%')
+	if (input[i] == 'c')
+		count += ft_putchar_ret(va_arg(args, int));
+	else if (input[i] == 's')
+		count += ft_putstr_ret(va_arg(args, char *));
+	else if (input[i] == 'p')
+		count += ft_put_p(va_arg(args, size_t));
+	else if (input[i] == 'd' || input[i] == 'i')
+		count += ft_putnbr_ret(va_arg(args, int));
+	else if (input[i] == 'u')
+		count += ft_putnbr_uns_ret(va_arg(args, unsigned int));
+	else if (input[i] == 'x')
+		count += ft_putnbr_base_low(va_arg(args, unsigned int));
+	else if (input[i] == 'X')
+		count += ft_putnbr_base_up(va_arg(args, unsigned int));
+	else if (input[i] == '%')
 		count += ft_putchar_ret('%');
 	else
 		count += ft_putchar_ret('%');
