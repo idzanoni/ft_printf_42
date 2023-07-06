@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 20:29:58 by izanoni           #+#    #+#             */
-/*   Updated: 2023/07/05 20:30:16 by izanoni          ###   ########.fr       */
+/*   Updated: 2023/07/06 13:15:55 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,19 @@ int	ft_putchar_ret(char c)
 	return (ret);
 }
 
-int	ft_putstr_ret(char *s)
+int	ft_putstr_ret(char *str)
 {
 	int	ret;
 
 	ret = 0;
-	if (!s)
-		return (ret);
-	while (s[ret] != '\0')
+	if (!str)
 	{
-		write(1, &s[ret], 1);
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[ret] != '\0')
+	{
+		write(1, &str[ret], 1);
 		ret++;
 	}
 	return (ret);
