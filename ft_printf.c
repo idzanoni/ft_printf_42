@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:36:51 by izanoni           #+#    #+#             */
-/*   Updated: 2023/07/06 13:34:36 by izanoni          ###   ########.fr       */
+/*   Updated: 2023/07/10 16:04:08 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_printf(const char *input, ...)
 	int		i;
 	int		count;
 
+	if (!input)
+		return (-1);
 	va_start(args, input);
 	i = 0;
 	count = 0;
