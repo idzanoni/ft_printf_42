@@ -6,13 +6,12 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 19:30:16 by izanoni           #+#    #+#             */
-/*   Updated: 2023/07/06 13:25:37 by izanoni          ###   ########.fr       */
+/*   Updated: 2023/07/11 20:54:38 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <stdlib.h>
 # include <stdarg.h>
 # include <unistd.h>
 # define HEX_LOW "0123456789abcdef"

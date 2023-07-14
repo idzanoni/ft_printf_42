@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:36:51 by izanoni           #+#    #+#             */
-/*   Updated: 2023/07/10 16:50:24 by izanoni          ###   ########.fr       */
+/*   Updated: 2023/07/11 21:20:51 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,9 @@ int	arg_check(va_list args, const char *input, int i)
 	else if (input[i] == 'u')
 		count += ft_putnbr_uns_ret(va_arg(args, unsigned int));
 	else if (input[i] == 'x')
-		count += ft_putnbr_base_low(va_arg(args, size_t));
+		count += ft_putnbr_base_low(va_arg(args, unsigned int));
 	else if (input[i] == 'X')
-		count += ft_putnbr_base_up(va_arg(args, size_t));
-	else if (input[i] == '%')
-		count += ft_putchar_ret('%');
+		count += ft_putnbr_base_up(va_arg(args, unsigned int));
 	else
 		count += ft_putchar_ret('%');
 	return (count);
